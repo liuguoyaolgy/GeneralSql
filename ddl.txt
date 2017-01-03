@@ -1,0 +1,23 @@
+create table bank_rule(
+  bank_name char(40),
+  rule_name char(100),
+  rule_no   char(3)
+);
+create table rule_mapping(
+    rule_no char(3),
+    tbl_head char(1000),
+    fmstr char(1000),
+    data_eg char(1000),
+    filter char(1000)
+);
+
+alter table rule_mapping add column pre varchar(30);
+alter table rule_mapping add column append varchar(30);
+insert into bank_rule values('北京','   ','001' );
+insert into bank_rule values('石家庄','   ','002' );
+insert into bank_rule values('厦门','   ','003' );
+insert into bank_rule values('泉州','   ','004' );
+insert into bank_rule values('福州','   ','005' );
+SELECT * FROM bank_rule limit 0,13;
+select * from bank_rule where bank_name like '%北京%' limit 0,13;
+select * from bank_rule where bank_name ='北京' limit 0,13;
